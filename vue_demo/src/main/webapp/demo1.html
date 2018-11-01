@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>快速入门</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<!--定义id=app的目的是：app定义的div标签中可以使用vue-->
+<div id="app">
+    {{100+100+message}}<br>
+    {{message>10?"ok":"不ok"}}<br>
+    {{message1}}
+</div>
+</body>
+<script>
+    //view model
+    new Vue({
+        el:"#app",// 表示当前vue对象接管了div区域
+        data:{
+            message:10,//model
+            message1:"hello world"//model
+        }
+    });
+</script>
+</html>

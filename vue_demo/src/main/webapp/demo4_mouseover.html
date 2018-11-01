@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on:mouseover</title>
+    <style>
+        #div {
+            background-color: red;
+        }
+    </style>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<!--定义id=app的目的是：app定义的div标签中可以使用vue-->
+<div id="app">
+    <div @mouseover="fun1" id="div" style="width: 70%;height: 80%">
+        12345
+        <textarea @mouseover="fun2($event)">abc</textarea>
+    </div>
+</div>
+</body>
+<script>
+    //view model
+   new Vue({
+      el:"#app",
+      data:{
+        message:10//model
+      },
+       methods:{
+          fun1:function () {
+              alert("div区域......");
+          },
+           fun2:function (e) {
+               alert("textarea区域......");
+               // 阻止冒泡（如果2个方法重叠，阻止上一层fun1方法的执行 ）
+               e.stopPropagation();
+           }
+       }
+   });
+</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on:keydown</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<!--定义id=app的目的是：app定义的div标签中可以使用vue-->
+<div id="app">
+    <input type="text" v-on:keydown="fun($event)">
+</div>
+</body>
+<script>
+    //view model
+   new Vue({
+      el:"#app",
+      data:{
+        message:10//model
+      },
+       methods:{
+          fun:function (e) {
+              //1.捕获keyCode 判断它是否是0-9  需要使用event对象
+              var keyCode = e.keyCode;
+              if(!(keyCode >= 48 && keyCode <= 57)) {
+                  //2.阻止默认行为执行
+                  e.preventDefault();
+              }
+          }
+       }
+   });
+</script>
+</html>

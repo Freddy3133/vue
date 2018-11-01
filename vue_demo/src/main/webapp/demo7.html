@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on:按键修饰符</title>
+    <script src="js/vuejs-2.5.16.js"></script>
+</head>
+<body>
+<!--定义id=app的目的是：app定义的div标签中可以使用vue-->
+<div id="app">
+     <div v-text="message"></div>
+     <div v-html="message"></div>
+</div>
+</body>
+<script>
+    //view model
+   new Vue({
+      el:"#app",
+       data:{
+           message:"<h1>hello world</h1>"//model
+       }
+   });
+</script>
+</html>
